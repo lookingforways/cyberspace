@@ -1,11 +1,10 @@
-import { Analytics } from '@vercel/analytics/next'
 import type { Metadata, Viewport } from 'next'
 import './globals.css'
 
 export const metadata: Metadata = {
   title: 'Cyberlab · Aula de Ciberseguridad',
   description: 'Laboratorios guiados y material educativo para aprender ciberseguridad de forma responsable.',
-  generator: 'v0.app',
+  generator: 'cyberspace — Jesús Sanabria, Estudiante de ciberseguridad en FUSALMO',
   icons: {
     icon: [
       {
@@ -42,7 +41,6 @@ export default function RootLayout({
     <html lang="es">
       <body className="antialiased">
         {children}
-        {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>
     </html>
   )
