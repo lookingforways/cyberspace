@@ -206,11 +206,11 @@ function Overview({ onOpen }: { onOpen: (id: string) => void }) {
 
 function TryHackMeFlow() {
   const steps = [
-    ['01', 'Define room and scope', 'Selecciona una sala oficial y trabaja solo con la IP privada entregada por la VPN.'],
-    ['02', 'Connect and verify', 'Conecta la VPN, confirma tu interfaz y valida conectividad sin tocar objetivos externos.'],
-    ['03', 'Enumerate gently', 'Empieza con ping, puertos comunes y detección de versiones; documenta cada comando.'],
-    ['04', 'Validate the lesson', 'Usa únicamente las técnicas indicadas por la sala y detente cuando obtengas la evidencia solicitada.'],
-    ['05', 'Report and reset', 'Guarda capturas, hallazgos y mitigaciones; desconecta la VPN y elimina credenciales temporales.'],
+    ['01', 'Define la sala y el alcance', 'Selecciona una sala oficial y trabaja solo con la IP privada entregada por la VPN.'],
+    ['02', 'Conecta y verifica', 'Conecta la VPN, confirma tu interfaz y valida conectividad sin tocar objetivos externos.'],
+    ['03', 'Enumera con cuidado', 'Empieza con ping, puertos comunes y detección de versiones; documenta cada comando.'],
+    ['04', 'Valida la lección', 'Usa únicamente las técnicas indicadas por la sala y detente cuando obtengas la evidencia solicitada.'],
+    ['05', 'Reporta y restablece', 'Guarda capturas, hallazgos y mitigaciones; desconecta la VPN y elimina credenciales temporales.'],
   ]
   return <div className="mt-8 space-y-5"><div className="rounded-2xl border border-cyan-400/20 bg-cyan-400/5 p-5"><div className="flex items-start gap-4"><BookOpen className="mt-1 size-5 text-cyan-300" /><div><h3 className="font-semibold text-white">Flujo seguro para TryHackMe</h3><p className="mt-2 text-sm leading-6 text-slate-400">Este recorrido conecta cada comando con una práctica de aprendizaje. La plataforma proporciona el objetivo y la autorización; no reutilices estas técnicas fuera de la sala.</p></div></div></div><div className="grid gap-3 md:grid-cols-5">{steps.map(([number, title, text]) => <div key={number} className="rounded-xl border border-white/10 bg-slate-950/60 p-4"><span className="font-mono text-xs text-cyan-300">{number}</span><h4 className="mt-3 text-sm font-semibold text-white">{title}</h4><p className="mt-2 text-xs leading-5 text-slate-500">{text}</p></div>)}</div><div className="grid gap-4 md:grid-cols-2"><div className="info-block"><Terminal className="size-5 text-cyan-300" /><h3>Kit de verificación inicial</h3><pre className="mt-4 overflow-x-auto text-xs leading-6 text-cyan-100"><code>{`ip addr show\nip route\nping -c 3 {IP_TARGET}\nnmap -Pn -p 22,80,443 {IP_TARGET}\nnmap -sV --version-light {IP_TARGET}`}</code></pre></div><div className="info-block"><ShieldCheck className="size-5 text-cyan-300" /><h3>Casos de uso por sala</h3><ul className="mt-3 space-y-2 text-sm leading-6 text-slate-400"><li>Reconocimiento: identifica servicios y registra versiones.</li><li>Web: revisa rutas y respuestas sin automatización agresiva.</li><li>Blue team: captura tráfico, crea filtros y explica la evidencia.</li><li>Windows/AD: relaciona usuarios, grupos y privilegios en el dominio de práctica.</li></ul></div></div></div>
 }
